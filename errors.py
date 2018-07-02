@@ -1,4 +1,5 @@
 #Reference: E. Burman, M. Nechita, L. Oksanen, Unique continuation for the Helmholtz equation using stabilized finite element methods, J. Math. Pures Appl., 2018
+#computing the errors and the value of the stabilizers for an approximate solution
 from dolfin import *
 
 #computing the H^1_0 error on a subdomain
@@ -11,7 +12,6 @@ def error_normH10(ue, u, ind_B, mesh, degree):
     error = ind_B * dot(grad(e_W), grad(e_W)) * dx
     return sqrt(abs(assemble(error)))
 
-#computing the errors and the stabilizers for an approximate solution
 def error_list(ue, u, z, ind_B):
     fspace = u.function_space()    
     mesh = fspace.mesh()
