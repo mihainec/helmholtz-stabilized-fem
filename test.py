@@ -1,4 +1,5 @@
 #Reference: E. Burman, M. Nechita, L. Oksanen, Unique continuation for the Helmholtz equation using stabilized finite element methods, J. Math. Pures Appl., 2018
+#checking the convergence of the method and plotting the approximate solution for ParaView
 from dolfin import *
 from stabilized_fem import *
 from domains import *
@@ -14,8 +15,9 @@ ind_omega.set_values(1, 0)
 ind_B = ind_B_conv(degree=0)
 ind_B.set_values(1, 0)
 
-#gaussian bump in Example 2
+#gaussian bump in Example 2 from the paper, exact solution
 ue = Expression("exp( -(x[0]-0.5)*(x[0]-0.5)/(2*sx) - (x[1]-1)*(x[1]-1)/(2*sy) )", degree=5, sx=0.01, sy=0.1)
+#right hand side of the PDE
 f = Expression("-( (x[0]-0.5)*(x[0]-0.5)/(sx*sx)-1/sx + (x[1]-1)*(x[1]-1)/(sy*sy)-1/sy + k*k ) * exp( -(x[0]-0.5)*(x[0]-0.5)/(2*sx) - (x[1]-1)*(x[1]-1)/(2*sy) )", degree=5, sx=0.01, sy=0.1, k=k)
 
 #plot an approximate solution for visualization in ParaView
