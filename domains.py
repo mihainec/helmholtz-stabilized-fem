@@ -1,4 +1,5 @@
 #Reference: E. Burman, M. Nechita, L. Oksanen, Unique continuation for the Helmholtz equation using stabilized finite element methods, J. Math. Pures Appl., 2018
+#definitions of computational domains
 from dolfin import Expression
 from numpy import pi
 
