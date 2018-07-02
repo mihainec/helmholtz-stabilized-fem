@@ -1,4 +1,5 @@
 #Reference: E. Burman, M. Nechita, L. Oksanen, Unique continuation for the Helmholtz equation using stabilized finite element methods, J. Math. Pures Appl., 2018
+#FEniCS implementation for the finited element method described in the above reference
 from dolfin import *
 import numpy as np
 
